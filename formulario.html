@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulários</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link href="form.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>Formulário da empresa</h1>
+
+    <form class="img js-fullheight" action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post" name="dados" onSubmit="return enviardados();">
+
+        <div class="campo">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" style="width: 20em" value="" />
+            <label for="snome">Sobrenome:</label>
+            <input type="text" id="snome" name="snome" style="width: 20em" value="" />
+        </div>
+
+
+        <div class="campo">
+            <label>Sexo:</label>
+            <label class="checkbox">
+                <input type="radio" name="sexo" value="masculino"> Masculino
+            </label>
+            <label class="checkbox">
+                <input type="radio" name="sexo" value="feminino"> Feminino
+            </label>
+        </div>
+
+        <div class="campo">
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" style="width: 20em" value="" />
+        </div>
+
+        <div class="campo">
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" style="width: 20em" value="" />
+        </div>
+
+
+        <div class="campo">
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" style="width: 20em" value="" />
+        </div>
+        <div class="campo">
+            <label for="estado">Estado:</label>
+            <select name="estado" id="estado">
+                <option value="">--</option>
+                <option value="MG">MG</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="trabalho">Area desejada:</label>
+            <input type="text" id="trabalho" name="trabalho" style="width: 20em" value="" />
+        </div>
+
+        <div class="campo">
+            <p style="color: rgb(0, 0, 0);"> Ensira seu curiculo aqui:</p> <input style="color: rgb(255, 255, 255);"
+                type="file">
+        </div>
+
+        <div class="campo">
+            <label for="mensagem">Mensagem:</label>
+            <textarea rows="6" style="width: 20em" id="mensagem" name="mensagem"></textarea>
+        </div>
+
+        <div class="campo">
+            <label class="checkbox">
+                <label> <input type="checkbox" name="newsletter" value="1"> Gostaria de receber a novas ofertas da
+                    empresa. </label>
+            </label>
+        </div>
+
+        <div class="campo">
+            <label class="checkbox">
+                <label> <input type="checkbox" name="newsletter" value="1"> termos de segurança.</label>
+            </label>
+        </div>
+
+        <button class="botao submit" type="submit" name="submit" value="Enviar dados">Enviar</button>
+
+        </fieldset>
+    </form>
+</body>
+<script>
+    function enviardados() {
+
+        if (document.dados.nome.value == "" ||
+            document.dados.nome.value.length < 4) {
+            alert("Preencha campo NOME corretamente!");
+            document.dados.nome.focus();
+            return false;
+        }
+
+        if (document.dados.snome.value == "" ||
+            document.dados.snome.value.length < 4) {
+            alert("Preencha campo Sobre Nome corretamente!");
+            document.dados.snome.focus();
+            return false;
+        }
+
+        if (document.dados.email.value == "" ||
+            document.dados.email.value.indexOf('@') == -1 ||
+            document.dados.email.value.indexOf('.') == -1) {
+            alert("Preencha campo E-MAIL corretamente!");
+            document.dados.email.focus();
+            return false;
+        }
+        
+        if (document.dados.telefone.value == "") {
+            alert("Preencha o campo TELEFONE!");
+            document.dados.telefone.focus();
+            return false;
+        }
+
+        if (document.dados.trabalho.value == "") {
+            alert("Preencha o campo TRABALHO!");
+            document.dados.trabalho.focus();
+            return false;
+        }
+
+        if (document.dados.mensagem.value == "") {
+            alert("Preencha o campo MENSAGEM!");
+            document.dados.mensagem.focus();
+            return false;
+        }
+
+        return true;
+    }
+
+</script>
+
+</html>
